@@ -1,12 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import GlobalStyle from "styles/GlobalStyle";
-import Test from "components/index";
+import GlobalStyle from 'styles/GlobalStyle';
+import { store } from 'modules/store';
+import App from './App';
 
 ReactDOM.render(
-  <>
+  <Provider store={store}>
     <GlobalStyle />
-  </>,
-  document.getElementById("app")
+    <App />
+  </Provider>,
+  document.getElementById('app'),
 );
