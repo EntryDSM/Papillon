@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import Content from '../components/Login/Content';
-import Description from '../components/Login/Description';
+import { Content, Description } from '../components/Login';
 import * as S from './style';
 
 const Login: React.FC = () => (
