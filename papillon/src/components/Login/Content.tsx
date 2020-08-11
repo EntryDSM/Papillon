@@ -13,24 +13,24 @@ const Content: React.FC = () => {
     changePassword(e.target.value);
 
   return (
-    <S.contentWrapper>
+    <S.ContentWrapper>
       <img src={logo} alt="logo" />
       <h1>Login</h1>
       <p>지급받은 아이디와 비밀번호를 입력해 주세요</p>
-      <S.loginInput
+      <S.LoginInput
         type="text"
         placeholder="Email"
         value={inputStatus.email}
         onChange={handleChangeEmail}
       />
-      <S.loginInput
+      <S.LoginInput
         type="password"
         placeholder="Password"
         value={inputStatus.password}
         onChange={handleChangePassword}
       />
-      <S.loginBtn>Sign in</S.loginBtn>
-    </S.contentWrapper>
+      <S.LoginBtn>Sign in</S.LoginBtn>
+    </S.ContentWrapper>
   );
 };
 

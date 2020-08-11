@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { login_background } from 'assets/index';
 import { lightPrimaryColor, primaryColor } from 'styles/colors';
 
-export const background = styled.div`
+export const Background = styled.div`
   width: 39%;
   height: 100vh;
   background: url(${login_background});
@@ -28,7 +28,7 @@ export const background = styled.div`
   }
 `;
 
-export const contentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   width: 61%;
   height: 100vh;
   display: inline-flex;
@@ -55,7 +55,7 @@ export const contentWrapper = styled.div`
   }
 `;
 
-export const loginInput = styled.input`
+export const LoginInput = styled.input`
   width: 100%;
   height: 80px;
   box-sizing: border-box;
@@ -68,7 +68,7 @@ export const loginInput = styled.input`
   margin-bottom: 30px;
 `;
 
-export const loginBtn = styled.button`
+export const LoginBtn = styled.button`
   width: 100%;
   height: 100px;
   border-radius: 5px;
