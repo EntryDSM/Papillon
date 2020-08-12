@@ -26,14 +26,14 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: ./papillion
+        working-directory: ./papillon
 
       - name: Build
         run: npm run build
-        working-directory: ./papillion
+        working-directory: ./papillon
 
       - name: Deploy to S3
-        working-directory: ./papillion
+        working-directory: ./papillon
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
