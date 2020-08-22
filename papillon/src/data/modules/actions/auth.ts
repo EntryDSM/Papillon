@@ -1,34 +1,18 @@
-export const INPUT_EMAIL = 'INPUT_EMAIL';
-export const INPUT_PASSWORD = 'INPUT_PASSWORD';
+import { ApiPayload, LoginPayload, Tokens } from 'api/apiTypes';
 
-export interface InputEmail {
-  type: typeof INPUT_EMAIL;
-  payload: {
-    email: string;
-  };
+export const LOGIN = 'LOGIN';
+export const LOGIN_ASYNC = 'LOGIN_ASYNC';
+
+export type loginType = typeof LOGIN | typeof LOGIN_ASYNC;
+export type loginPayload = ApiPayload<Tokens> & LoginPayload;
+export interface Login {
+  type: loginType;
+  payload: loginPayload;
 }
-
-export interface InputPassword {
-  type: typeof INPUT_PASSWORD;
-  payload: {
-    password: string;
-  };
-}
-
-export const inputEmail = (payload: { email: string }): InputEmail => ({
-  type: INPUT_EMAIL,
-  payload: {
-    email: payload.email,
-  },
+export const loginAction = (payload: loginPayload): Login => ({
+  type: LOGIN,
+  payload,
 });
 
-export const inputPassword = (payload: {
-  password: string;
-}): InputPassword => ({
-  type: INPUT_PASSWORD,
-  payload: {
-    password: payload.password,
-  },
-});
 
-export type AuthActions = InputEmail | InputPassword;
+export type AuthActions = Login;
