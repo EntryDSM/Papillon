@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { checked } from '../../assets';
+import { checked } from 'assets/index';
 
 const CheckboxWrapper = styled.div`
   width: 20px;
@@ -22,10 +22,12 @@ interface Props {
   isChecked: boolean;
 }
 
-const Checkbox: React.FC<Props> = ({ isChecked }) => (
-  <CheckboxWrapper>
-    {isChecked && <Check src={checked} alt="checked" />}
-  </CheckboxWrapper>
-);
+function Checkbox({ isChecked }: Props) {
+  return (
+    <CheckboxWrapper>
+      {isChecked && <Check src={checked} alt="checked" />}
+    </CheckboxWrapper>
+  );
+}
 
 export default Checkbox;

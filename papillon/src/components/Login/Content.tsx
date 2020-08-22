@@ -6,6 +6,7 @@ import useAuth from 'hooks/useAuth';
 
 const Content: React.FC = () => {
   const { inputStatus, changeEmail, changePassword } = useAuth();
+function Content() {
 
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) =>
     changeEmail(e.target.value);
@@ -33,5 +34,6 @@ const Content: React.FC = () => {
     </S.ContentWrapper>
   );
 };
+}
 
 export default Content;
