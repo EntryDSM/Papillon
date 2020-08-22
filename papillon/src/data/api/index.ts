@@ -27,3 +27,12 @@ export const loginApi = async (payload: T.LoginPayload) => {
   return [response.data, response.status];
 };
 
+export const refreshTokenApi = async (payload: T.Tokens) => {
+  const response = await instance.put<T.Tokens>('/auth', null, {
+    headers: {
+      Authorization: payload.refreshToken,
+    },
+  });
+
+  return [response.data, response.status];
+};
