@@ -1,9 +1,18 @@
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, all } from 'redux-saga/effects';
 
 import { sagaEntity } from './index';
-import { LOGIN, LOGIN_ASYNC, Login, loginType } from '../actions/auth';
-import { loginApi } from 'api/index';
-import { LoginPayload } from 'api/apiTypes';
+import {
+  LOGIN,
+  LOGIN_ASYNC,
+  Login,
+  loginType,
+  REFRESH_TOKEN,
+  REFRESH_TOKEN_ASYNC,
+  RefreshToken,
+  refreshTokenType,
+} from '../actions/auth';
+import { loginApi, refreshTokenApi } from 'api/index';
+import { LoginPayload, RefreshTokenPayload } from 'api/apiTypes';
 
 function* login(action: Login) {
   yield sagaEntity<loginType, LoginPayload>({
@@ -13,6 +22,17 @@ function* login(action: Login) {
   });
 }
 
+function* refreshToken(action: RefreshToken) {
+  yield sagaEntity<refreshTokenType, RefreshTokenPayload>({
+    action,
+    api: refreshTokenApi,
+    type: REFRESH_TOKEN_ASYNC,
+  });
+}
+
 export default function* authSaga() {
-  yield takeLatest(LOGIN, login);
+  yield all([
+    takeLatest(LOGIN, login),
+    takeLatest(REFRESH_TOKEN, refreshToken),
+  ]);
 }
