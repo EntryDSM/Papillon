@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import * as S from '../style';
 import { logo } from 'assets/index';
 import useAuth from 'hooks/useAuth';
-import checkApiStatus from 'api/checkAPIStatus';
+import checkApiStatus from 'api/checkApiStatus';
 import { setToken } from 'utils/token';
 
 function Content() {
