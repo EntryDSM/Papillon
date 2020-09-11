@@ -1,0 +1,106 @@
+import styled from 'styled-components';
+
+import {
+  accentColor,
+  darkBorderColor,
+  lightPrimaryColor,
+} from '../../../../styles/colors';
+
+export const SearchBarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CategoryDropdownClosed = styled.div`
+  width: 114px;
+  height: 35px;
+  border: solid ${accentColor} 1px;
+  border-radius: 4px;
+  display: inline-flex;
+  box-sizing: border-box;
+  padding: 10px 18px;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 300;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+
+  > img {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+export const CategoryDropdownOpened = styled.ul`
+  width: 114px;
+  border: solid ${accentColor} 1px;
+  background: white;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+
+  > li:first-child {
+    width: 78px;
+    height: 35px;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: solid 1px #dadada;
+    margin-bottom: 5px;
+    padding: 0;
+
+    > img {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background: white;
+    }
+  }
+
+  > li {
+    width: 100%;
+    height: 24px;
+    padding: 0 18px;
+    font-size: 12px;
+    font-weight: 300;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: ${lightPrimaryColor};
+    }
+  }
+`;
+
+export const SearchInputContainer = styled.div`
+  width: 612px;
+  height: 35px;
+  box-sizing: border-box;
+  margin-left: 125px;
+  border: solid ${darkBorderColor} 1px;
+  border-radius: 4px;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+
+  > img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  > input {
+    width: 100%;
+    font-size: 12px;
+    display: inline-block;
+  }
+`;
