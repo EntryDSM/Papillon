@@ -49,7 +49,7 @@ export const returnGradeType = (gradeType: string) => {
 };
 
 export const returnContact = (contact: string) => {
-  if (!contact) return '비어있습니다.';
+  if (!contact) return '';
   return contact
     .replace(/[^0-9]/g, '')
     .replace(
