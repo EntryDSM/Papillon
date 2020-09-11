@@ -12,6 +12,8 @@ const CheckboxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
 `;
 
 const Check = styled.img`
