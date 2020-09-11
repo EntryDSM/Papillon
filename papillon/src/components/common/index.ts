@@ -4,8 +4,8 @@ import Checkbox from './Checkbox';
 
 export const Button = styled.button`
   &.applicant-list__excel-btn {
-    width: 102px;
-    height: 40px;
+    width: 96px;
+    height: 35px;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
@@ -28,6 +28,12 @@ export const Button = styled.button`
     border-radius: 6px;
     font-weight: 500;
     font-size: 24px;
+  }
+  &.statistics-all__excel-btn {
+    width: 110px;
+    height: 36px;
+    border-radius: 6px;
+    margin-top: 20px;
   }
 `;
 
