@@ -1,5 +1,4 @@
-import { LOGIN_ASYNC, AuthActions } from '../actions/auth';
-
+import { LOGIN_ASYNC, REFRESH_TOKEN_ASYNC, AuthActions } from '../actions/auth';
 import { returnApiResponseData } from '.';
 import { API_STATUS } from 'api/index';
 
@@ -25,6 +24,14 @@ const authReducer = (state = initialState, action: AuthActions) => {
       return returnApiResponseData<InitialState>({
         state,
         statusName: API_STATUS.loginStatus,
+        payload: action.payload,
+        dataKeyName: 'tokens',
+      });
+    }
+    case REFRESH_TOKEN_ASYNC: {
+      return returnApiResponseData<InitialState>({
+        state,
+        statusName: API_STATUS.refreshTokenStatus,
         payload: action.payload,
         dataKeyName: 'tokens',
       });
