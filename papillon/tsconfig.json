@@ -16,7 +16,8 @@
       "components/*": ["/src/components/*"],
       "hooks/*": ["src/hooks/*"],
       "page/*": ["src/page/*"],
-      "styles/*": ["src/styles/*"]
+      "styles/*": ["src/styles/*"],
+      "utils/*": ["src/utils/*"]
     },
     "allowSyntheticDefaultImports": true,
     "keyofStringsOnly": true

@@ -52,6 +52,10 @@ export const ContentWrapper = styled.div`
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 40px;
+
+    &.failed {
+      color: #ff5c5c;
+    }
   }
 `;
 

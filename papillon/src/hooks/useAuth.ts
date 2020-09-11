@@ -1,32 +1,24 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { inputEmail, inputPassword } from '../data/modules/actions/auth';
+import { loginAction, loginPayload } from '../data/modules/actions/auth';
 import { AppState } from '../data/modules/store';
-
-interface SelectorType {
-  email: string;
-  password: string;
-}
+import { InitialState } from '../data/modules/reducers/auth';
 
 export const useAuth = () => {
-  const inputStatus = useSelector<AppState, SelectorType>(state => ({
-    email: state.auth.email,
-    password: state.auth.password,
+  const authStore = useSelector<AppState, InitialState>(state => ({
+    loginStatus: state.auth.loginStatus,
+    tokens: state.auth.tokens,
   }));
 
   const dispatch = useDispatch();
 
-  const changeEmail = useCallback(
-    (email: string) => dispatch(inputEmail({ email })),
-    [dispatch],
-  );
-  const changePassword = useCallback(
-    (password: string) => dispatch(inputPassword({ password })),
+  const login = useCallback(
+    (payload: loginPayload) => dispatch(loginAction(payload)),
     [dispatch],
   );
 
-  return { inputStatus, changeEmail, changePassword };
+  return { authStore, login };
 };
 
 export default useAuth;

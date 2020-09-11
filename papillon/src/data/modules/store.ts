@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxSaga from 'redux-saga';
 
 import reducer from './reducers';
+import sagas from './middlewares';
 
 const sagaMiddleWare = reduxSaga();
 
@@ -13,4 +14,4 @@ export const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleWare)),
 );
 
-// sagaMiddleWare.run(sagas);
+sagaMiddleWare.run(sagas);
