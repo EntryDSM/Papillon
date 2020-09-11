@@ -1,9 +1,9 @@
 import {
   createGlobalStyle,
   GlobalStyleComponent,
-  DefaultTheme
-} from "styled-components";
-import { primaryColor } from "./colors";
+  DefaultTheme,
+} from 'styled-components';
+import { primaryColor } from './colors';
 
 const GlobalStyle: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
   html, body {
@@ -12,6 +12,7 @@ const GlobalStyle: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
     font-family: 'NanumSquare', sans-serif !important;;
   }
   input {
+    border: none;
     border-radius: 5px;
     &:focus {
       outline: none;

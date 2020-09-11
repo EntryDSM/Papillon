@@ -1,10 +1,13 @@
 import { put, call, all } from 'redux-saga/effects';
+import { AxiosError } from 'axios';
 
 import authSaga from './auth';
-import { AxiosError } from 'axios';
+import applicantSaga from './applicant';
+import statisticsSaga from './statistics';
 import { refreshTokenApi } from 'api/index';
+import { LOGIN } from '../actions/auth';
 import { REFRESH_TOKEN_ASYNC } from '../actions/auth';
-import { clearStorage, getRefreshToken } from '../../../utils/token';
+import { clearStorage, getRefreshToken } from 'utils/token';
 
 interface SagaEntityParams<ActionT, PayloadT> {
   action: {
@@ -32,10 +35,11 @@ export function* sagaEntity<ActionT, PayloadT = object>({
 
     if (error.response?.status === 401) {
       try {
-        const refreshToken: string = getRefreshToken();
+        const refresh_token: string = getRefreshToken();
         const tokenResponse = yield call(refreshTokenApi, {
-          refreshToken,
+          refresh_token,
         });
+
         yield put({
           type: REFRESH_TOKEN_ASYNC,
           payload: { data: tokenResponse[0], status: tokenResponse[1] },
@@ -55,7 +59,10 @@ export function* sagaEntity<ActionT, PayloadT = object>({
           },
         });
       } catch (err) {
-        if (err.response?.status === 401) {
+        if (
+          err.response?.status === 401 &&
+          typeof action.type !== typeof LOGIN
+        ) {
           clearStorage();
           alert('유저 정보 토큰이 만료되어 새로고침됩니다.');
           window.location.reload();
@@ -68,7 +75,10 @@ export function* sagaEntity<ActionT, PayloadT = object>({
       }
     } else if (error.response?.status) {
       yield put({
-        payload: { data: null, status: error.response.status },
+        payload: {
+          data: error.response.data || null,
+          status: error.response.status,
+        },
         type,
       });
     }
@@ -76,5 +86,5 @@ export function* sagaEntity<ActionT, PayloadT = object>({
 }
 
 export default function* rootSaga() {
-  yield all([call(authSaga)]);
+  yield all([call(authSaga), call(applicantSaga), call(statisticsSaga)]);
 }
