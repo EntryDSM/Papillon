@@ -1,3 +1,5 @@
+import useApplicant from './useApplicant';
 import useAuth from './useAuth';
+import useStatistics from './useStatistics';
 
-export { useAuth };
+export { useApplicant, useAuth, useStatistics };
