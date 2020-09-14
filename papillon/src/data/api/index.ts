@@ -112,7 +112,7 @@ export const downloadAdmissionExcel = async () => {
 };
 
 export const downloadStatisticsExcel = async () => {
-  const response = await instance('excel').put('/excel/competition_status', {
+  const response = await instance('excel').get('/excel/competition_status', {
     headers: authorization(getAccessToken()),
     responseType: 'blob',
   });
