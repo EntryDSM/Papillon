@@ -21,8 +21,8 @@ function Content() {
   React.useEffect(() => {
     if (checkApiStatus(loginStatus)._200) {
       setToken({
-        accessToken: tokens.access_token,
-        refreshToken: tokens.refresh_token,
+        access_token: tokens.access_token,
+        refresh_token: tokens.refresh_token,
       });
       push('/');
     } else if (checkApiStatus(loginStatus)._403) {

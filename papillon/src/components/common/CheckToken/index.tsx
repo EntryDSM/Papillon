@@ -1,10 +1,15 @@
 import * as React from 'react';
 
 import { useHistory } from 'react-router-dom';
-import { getAccessToken } from 'utils/token';
+import { getAccessToken, setToken } from 'utils/token';
+import { useAuth } from 'hooks/index';
 
 function CheckToken({ children }) {
   const { push } = useHistory();
+  const {
+    authStore: { tokens },
+  } = useAuth();
+
   React.useEffect(() => {
     const token = getAccessToken();
 
@@ -13,6 +18,10 @@ function CheckToken({ children }) {
       push('/login');
     }
   }, []);
+
+  React.useEffect(() => {
+    setToken(tokens);
+  }, [tokens]);
 
   return children;
 }
