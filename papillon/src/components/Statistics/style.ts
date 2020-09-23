@@ -17,7 +17,7 @@ export const mainContainer = styled.div`
   > p {
     font-size: 20px;
     color: ${darkPrimaryColor};
-    margin-top: 12%;
+    margin-top: 10%;
     letter-spacing: 0.72px;
   }
 
