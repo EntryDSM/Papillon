@@ -7,14 +7,19 @@ import {
 } from '../../../../styles/colors';
 
 export const SearchBarWrapper = styled.div`
+  width: 88%;
+  top: 25%;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  z-index: 1;
 `;
 
 export const CategoryDropdownClosed = styled.div`
   width: 114px;
   height: 35px;
   border: solid ${accentColor} 1px;
+  background: white;
   border-radius: 4px;
   display: inline-flex;
   box-sizing: border-box;
@@ -22,8 +27,6 @@ export const CategoryDropdownClosed = styled.div`
   justify-content: space-between;
   font-size: 14px;
   font-weight: 300;
-  position: absolute;
-  z-index: 1;
   cursor: pointer;
 
   > img {
@@ -41,8 +44,6 @@ export const CategoryDropdownOpened = styled.ul`
   align-items: center;
   box-sizing: border-box;
   flex-direction: column;
-  position: absolute;
-  z-index: 1;
 
   > li:first-child {
     width: 78px;
@@ -81,15 +82,15 @@ export const CategoryDropdownOpened = styled.ul`
 `;
 
 export const SearchInputContainer = styled.div`
-  width: 612px;
+  width: 75%;
   height: 35px;
   box-sizing: border-box;
-  margin-left: 125px;
   border: solid ${darkBorderColor} 1px;
   border-radius: 4px;
   padding: 10px 18px;
   display: inline-flex;
   align-items: center;
+  background: white;
 
   > img {
     width: 16px;
