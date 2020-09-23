@@ -1,12 +1,17 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { loginAction, loginPayload } from '../data/modules/actions/auth';
+import {
+  loginAction,
+  loginPayload,
+  setTokenAction,
+  setTokenPayload,
+} from '../data/modules/actions/auth';
 import { AppState } from '../data/modules/store';
 import { InitialState } from '../data/modules/reducers/auth';
 
 export const useAuth = () => {
-  const authStore = useSelector<AppState, InitialState>(state => ({
+  const authStore = useSelector<AppState, InitialState>((state) => ({
     loginStatus: state.auth.loginStatus,
     tokens: state.auth.tokens,
   }));
@@ -18,7 +23,12 @@ export const useAuth = () => {
     [dispatch],
   );
 
-  return { authStore, login };
+  const setTokens = useCallback(
+    (payload: setTokenPayload) => dispatch(setTokenAction(payload)),
+    [dispatch],
+  );
+
+  return { authStore, login, setTokens };
 };
 
 export default useAuth;
