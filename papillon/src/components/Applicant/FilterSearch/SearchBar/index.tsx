@@ -11,7 +11,7 @@ function SearchBar() {
   const { setFilter } = useApplicant();
 
   const categoryList = [
-    { content: '수험번호', id: 'exam_code' },
+    { content: '수험번호', id: 'receipt_code' },
     { content: '전화번호', id: 'applicant_tel' },
     { content: '이메일', id: 'email' },
     { content: '이름', id: 'name' },

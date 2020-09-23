@@ -6,7 +6,7 @@ function ApplicantsList() {
   return (
     <S.ListHeader>
       <tr>
-        <S.TH>수험번호</S.TH>
+        <S.TH>접수번호</S.TH>
         <S.TH>이름</S.TH>
         <S.TH>지역</S.TH>
         <S.TH>전형</S.TH>

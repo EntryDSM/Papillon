@@ -56,7 +56,7 @@ export type GetStatisticsResponse = GetEachStatisticsResponse &
 export interface GetApplicantsListPayload {
   index?: number;
   email?: string;
-  exam_code?: number;
+  receipt_code?: number;
   school_name?: string;
   applicant_tel?: number;
   name?: string;
@@ -70,7 +70,7 @@ export interface GetApplicantsListPayload {
 }
 
 export interface ApplicantListItem {
-  examination_number: number;
+  receipt_code: number;
   name: string;
   email: string;
   is_daejeon: boolean;
