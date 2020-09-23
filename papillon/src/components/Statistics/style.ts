@@ -6,9 +6,9 @@ import {
   primaryColor,
 } from '../../styles/colors';
 
-export const mainContainer = styled.div`
+export const mainContainer = styled.div<{ isAll?: boolean }>`
   width: 70%;
-  height: 100%;
+  ${({ isAll }) => isAll && 'height: 100vh'};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ export const mainContainer = styled.div`
 
 export const regionSelectConatiner = styled.ul`
   display: flex;
-  margin-top: 5%;
+  margin-top: 4%;
 `;
 
 export const regionSelectItem = styled.li`
