@@ -6,6 +6,7 @@ import Statistics from 'page/Statistics';
 import Applicant from 'page/Applicant';
 import Admission from 'page/Admission';
 import CheckToken from './components/common/CheckToken';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/login" component={() => <Login />} />
         <CheckToken>
+          <Header />
           <Route exact path="/" component={() => <Statistics />} />
           <Route exact path="/applicant" component={() => <Applicant />} />
           <Route exact path="/admission" component={() => <Admission />} />
