@@ -30,7 +30,7 @@ const initialState: InitialState = {
   filters: {
     index: 1,
     email: null,
-    exam_code: null,
+    receipt_code: null,
     school_name: null,
     applicant_tel: null,
     name: null,

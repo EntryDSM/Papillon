@@ -13,7 +13,7 @@ interface Props {
 
 function ApplicantsListItem({
   applicantInfo: {
-    examination_number,
+    receipt_code,
     email,
     name,
     is_daejeon,
@@ -46,7 +46,7 @@ function ApplicantsListItem({
       }
       onClick={() => handleClick(email)}
     >
-      <S.TD>{examination_number}</S.TD>
+      <S.TD>{receipt_code}</S.TD>
       <S.TD>{name}</S.TD>
       <S.TD>{checkRegion()}</S.TD>
       <S.TD>{checkApplyType()}</S.TD>
