@@ -42,7 +42,7 @@ function Filter() {
 
   return (
     <S.FilterWrapper>
-      {checkLists.map(item => (
+      {checkLists.map((item) => (
         <S.FilterItemContainer
           key={item.value}
           onClick={() => handleChangeFilter(item.value)}
