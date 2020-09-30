@@ -17,11 +17,11 @@ export const IDPicture = styled.img`
   margin-right: 36px;
 `;
 
-export const InfoLine = styled.li`
+export const InfoLine = styled.li<{ isOneLine: boolean }>`
   display: flex;
   align-items: baseline;
   margin-bottom: 28px;
-  flex-direction: column;
+  ${({ isOneLine }) => !isOneLine && 'flex-direction: column'};
 
   > h3 {
     font-size: 32px;

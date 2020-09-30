@@ -7,10 +7,7 @@ import {
   Pagination,
 } from '../components/Applicant';
 import { ApplicantPageContainer } from './style';
-import Header from '../components/Header';
 import { useApplicant } from 'hooks/index';
-
-import * as S from '../components/Applicant/ApplicantInfo/Submitted/DetailInfo/style';
 
 function Applicant() {
   const {
@@ -23,17 +20,14 @@ function Applicant() {
   }, [filters]);
 
   return (
-    <>
-      <Header />
-      <ApplicantPageContainer>
-        <div>
-          <FilterSearch />
-          <ApplicantsList />
-          <Pagination />
-        </div>
-        <div>{currnetApplicantInfo && <ApplicantInfo />}</div>
-      </ApplicantPageContainer>
-    </>
+    <ApplicantPageContainer>
+      <div>
+        <FilterSearch />
+        <ApplicantsList />
+        <Pagination />
+      </div>
+      <div>{currnetApplicantInfo && <ApplicantInfo />}</div>
+    </ApplicantPageContainer>
   );
 }
 export default Applicant;

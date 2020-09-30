@@ -31,16 +31,16 @@ function BasicInfo({
     <S.Wrapper>
       <S.IDPicture src={user_photo} alt="ID Photo" />
       <ul>
-        <S.InfoLine>
+        <S.InfoLine isOneLine={true}>
           <h3>{name}</h3> <p>{birth_date}</p>
         </S.InfoLine>
-        <S.InfoLine>
+        <S.InfoLine isOneLine={false}>
           {(school_name && school_name + ' ') +
             checkGradeType() +
             ' ' +
             checkApplyType()}
         </S.InfoLine>
-        <S.InfoLine>
+        <S.InfoLine isOneLine={false}>
           <p>{address}</p>
           <p>{detail_address}</p>
         </S.InfoLine>

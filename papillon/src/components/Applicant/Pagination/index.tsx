@@ -12,11 +12,22 @@ function Pagination() {
     applicantStore: {
       applicantsList: { max_index },
     },
+    setFilter,
   } = useApplicant();
 
   React.useEffect(() => {
     setIndexList(getIndexList(currentIndex, max_index));
   }, [max_index, currentIndex]);
+
+  React.useEffect(() => {
+    setFilter({
+      index: currentIndex,
+    });
+  }, [currentIndex]);
+
+  React.useEffect(() => {
+    setCurrentIndex(1);
+  }, [max_index]);
 
   const handleClickIndex = React.useCallback((index: number) => {
     setCurrentIndex(index);
@@ -33,7 +44,7 @@ function Pagination() {
       <S.PageBtn className="move-btn" onClick={handleClickPrev}>
         {'<'}
       </S.PageBtn>
-      {indexList.map(i => (
+      {indexList.map((i) => (
         <S.PageBtn
           key={i.toString()}
           className={currentIndex === i && 'selected'}

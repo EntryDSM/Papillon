@@ -21,10 +21,8 @@ export const ContentSelector = styled.div`
 `;
 
 export const Document = styled.div`
-  height: 180px;
   font-weight: 300;
   font-size: 16px;
   line-height: 2.25;
   margin-top: 20px;
-  overflow-y: scroll;
 `;

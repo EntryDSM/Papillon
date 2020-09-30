@@ -5,7 +5,7 @@ export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 5%;
+  bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
 `;

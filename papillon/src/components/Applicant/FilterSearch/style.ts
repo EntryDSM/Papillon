@@ -5,9 +5,10 @@ const FilterSearchWrapper = styled.div`
   height: 140px;
   display: flex;
   flex-direction: column;
-  padding: 28px 6%;
+  padding: 3% 6%;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: flex-end;
+  position: relative;
 `;
 
 export default FilterSearchWrapper;

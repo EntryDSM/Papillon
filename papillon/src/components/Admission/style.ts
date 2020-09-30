@@ -10,7 +10,7 @@ export const ContentContainer = styled.div`
   align-items: center;
   background: white;
   box-sizing: border-box;
-  padding-top: 10%;
+  padding-top: 7%;
 
   > h1 {
     font-size: 58px;
