@@ -59,10 +59,7 @@ export function* sagaEntity<ActionT, PayloadT = object>({
           },
         });
       } catch (err) {
-        if (
-          err.response?.status === 401 &&
-          typeof action.type !== typeof LOGIN
-        ) {
+        if (err.response?.status === 401 && String(action.type) !== 'LOGIN') {
           clearStorage();
           alert('유저 정보 토큰이 만료되어 새로고침됩니다.');
           window.location.reload();
