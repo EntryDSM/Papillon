@@ -6,9 +6,7 @@ import { useAuth } from 'hooks/index';
 
 function CheckToken({ children }) {
   const { push } = useHistory();
-  const {]
-    setTokens,
-  } = useAuth();
+  const { setTokens } = useAuth();
 
   React.useEffect(() => {
     const token = getAccessToken();
