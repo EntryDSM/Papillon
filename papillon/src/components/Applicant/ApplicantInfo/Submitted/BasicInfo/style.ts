@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  margin-top: 50px;
+  margin-top: 30px;
 
   > ul {
     padding: 18px 0;
@@ -32,5 +32,9 @@ export const InfoLine = styled.li<{ isOneLine: boolean }>`
   > p {
     font-size: 16px;
     margin-bottom: 8px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
