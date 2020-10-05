@@ -104,7 +104,9 @@ export const downloadApplicantsListExcel = async () => {
 
 export const downloadAdmissionExcel = async () => {
   const response = await instance('excel').get('/excel/admission_ticket', {
-    headers: authorization(getAccessToken()),
+    headers: {
+      Authorization: getAccessToken(),
+    },
     responseType: 'blob',
   });
 
