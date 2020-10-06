@@ -40,6 +40,13 @@ function CompetitionTable() {
             <td>전국</td>
           </tr>
           <tr>
+            <td colSpan={2}>일반</td>
+            <td>{daejeon?.common_applicant.applicant_count || '0'}</td>
+            <td>{nationwide?.common_applicant.applicant_count || '0'}</td>
+            <td>{daejeon?.common_applicant.competition_rate || '0'}:1</td>
+            <td>{nationwide?.common_applicant.competition_rate || '0'}:1</td>
+          </tr>
+          <tr>
             <td rowSpan={2}>특별전형</td>
             <td>마이스터</td>
             <td>{daejeon?.meister_applicant.applicant_count || '0'}</td>
@@ -53,13 +60,6 @@ function CompetitionTable() {
             <td>{nationwide?.social_applicant.applicant_count || '0'}</td>
             <td>{daejeon?.social_applicant.competition_rate || '0'}:1</td>
             <td>{nationwide?.social_applicant.competition_rate || '0'}:1</td>
-          </tr>
-          <tr>
-            <td colSpan={2}>일반</td>
-            <td>{daejeon?.common_applicant.applicant_count || '0'}</td>
-            <td>{nationwide?.common_applicant.applicant_count || '0'}</td>
-            <td>{daejeon?.common_applicant.competition_rate || '0'}:1</td>
-            <td>{nationwide?.common_applicant.competition_rate || '0'}:1</td>
           </tr>
           <tr>
             <td colSpan={2}>소계</td>
