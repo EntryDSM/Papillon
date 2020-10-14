@@ -17,7 +17,7 @@ import { API_STATUS } from 'api/index';
 export interface InitialState {
   getApplicantsListStatus: 0 | 200 | 401 | 403;
   getApplicantInfoStatus: 0 | 200 | 401 | 403 | 423;
-  updateApplicantStatusStatus: 0 | 200 | 401 | 403;
+  updateApplicantStatusStatus: 0 | 203 | 400 | 401 | 403;
   filters: GetApplicantsListPayload;
   applicantsList: GetApplicantsListResponse;
   currnetApplicantInfo: GetApplicantInfoResponse;
@@ -36,8 +36,8 @@ const initialState: InitialState = {
     name: null,
     is_daejeon: null,
     is_nationwide: null,
-    not_arrived: null,
-    not_paid: null,
+    is_arrived: null,
+    is_paid: null,
     is_common: null,
     is_meister: null,
     is_social: null,
@@ -92,11 +92,8 @@ const applicantReducer = (
       const { applicants_information } = state.applicantsList;
       const { email, is_arrived, is_paid, is_final_submit } = action.payload;
 
-      newApplicantsList.applicants_information = applicants_information.map(
-        (v) =>
-          v.email === email
-            ? { ...v, is_arrived, is_paid, is_final_submit }
-            : v,
+      newApplicantsList.applicants_information = applicants_information.map(v =>
+        v.email === email ? { ...v, is_arrived, is_paid, is_final_submit } : v,
       );
       newCurrnetApplicantInfo.applicant_information.status = {
         is_arrived,

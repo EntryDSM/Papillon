@@ -62,8 +62,8 @@ export interface GetApplicantsListPayload {
   name?: string;
   is_daejeon?: boolean;
   is_nationwide?: boolean;
-  not_arrived?: boolean;
-  not_paid?: boolean;
+  is_arrived?: boolean;
+  is_paid?: boolean;
   is_common?: boolean;
   is_meister?: boolean;
   is_social?: boolean;

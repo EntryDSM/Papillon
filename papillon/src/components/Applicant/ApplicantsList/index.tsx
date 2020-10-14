@@ -18,7 +18,7 @@ function ApplicantsList() {
   return (
     <S.ApplicantsList>
       <ApplicantsListHeader />
-      <tbody>
+      <tbody className="no-select">
         {applicantsList.applicants_information.map(info => (
           <ApplicantsListItem
             key={info.email}

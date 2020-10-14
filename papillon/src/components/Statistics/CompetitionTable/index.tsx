@@ -12,7 +12,6 @@ function CompetitionTable() {
         total_applicant_count,
         total_competition_rate,
       },
-      statistics,
       selectedRegion,
     },
     getStatistics,
@@ -23,7 +22,7 @@ function CompetitionTable() {
   }, [selectedRegion]);
 
   return (
-    <S.competitionTableWrapper>
+    <S.competitionTableWrapper className="no-select">
       <table>
         <tbody>
           <tr>

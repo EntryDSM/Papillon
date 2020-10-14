@@ -35,7 +35,7 @@ function BasicInfo({
           <h3>{name}</h3> <p>{birth_date}</p>
         </S.InfoLine>
         <S.InfoLine isOneLine={false}>
-          {(school_name && school_name + ' ') +
+          {(school_name ? school_name + ' ' : '') +
             checkGradeType() +
             ' ' +
             checkApplyType()}

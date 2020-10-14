@@ -23,8 +23,8 @@ function Submitted({
   applicantEvaluation,
   applicantStatus,
 }: Props) {
-  const checkApplyType = React.useCallback(() => {
-    return returnGradeType(applicantPrivacy.apply_type) === '검정고시';
+  const checkGradeType = React.useCallback(() => {
+    return returnGradeType(applicantPrivacy.grade_type) === '검정고시';
   }, [applicantPrivacy.apply_type]);
 
   return (
@@ -35,7 +35,7 @@ function Submitted({
       />
       <BasicInfo applicantPrivacy={applicantPrivacy} />
       <DetailInfo
-        isGED={checkApplyType()}
+        isGED={checkGradeType()}
         applicantPrivacy={applicantPrivacy}
         applicantEvaluation={applicantEvaluation}
       />

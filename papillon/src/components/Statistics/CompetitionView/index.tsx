@@ -20,7 +20,7 @@ function CompetitionView({ isDaejeon }: Props) {
   }, [isDaejeon]);
 
   return (
-    <S.competitionViewWrapper>
+    <S.competitionViewWrapper className="no-select">
       <tbody>
         <tr>
           <S.competitionViewTH>지원자 수</S.competitionViewTH>

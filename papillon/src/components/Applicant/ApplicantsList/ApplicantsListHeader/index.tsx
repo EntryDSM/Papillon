@@ -4,7 +4,7 @@ import * as S from '../style';
 
 function ApplicantsList() {
   return (
-    <S.ListHeader>
+    <S.ListHeader className="no-select">
       <tr>
         <S.TH>접수번호</S.TH>
         <S.TH>이름</S.TH>

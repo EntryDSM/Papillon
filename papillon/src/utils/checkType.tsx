@@ -28,8 +28,6 @@ export const returnAdditionalType = (additionalType: string) => {
       return '국가유공자';
     case 'PRIVILEGED_ADMISSION':
       return '특례입학대상자';
-    // case 'NOT_APPLICABLE':
-    //   return '';
     default:
       return '';
   }
