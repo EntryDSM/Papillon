@@ -40,11 +40,11 @@ function Pagination() {
   }, [currentIndex, max_index]);
 
   return (
-    <S.PaginationContainer>
+    <S.PaginationContainer className="no-select">
       <S.PageBtn className="move-btn" onClick={handleClickPrev}>
         {'<'}
       </S.PageBtn>
-      {indexList.map((i) => (
+      {indexList.map(i => (
         <S.PageBtn
           key={i.toString()}
           className={currentIndex === i && 'selected'}

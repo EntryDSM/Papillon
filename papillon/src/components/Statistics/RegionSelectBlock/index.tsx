@@ -25,7 +25,7 @@ function RegionSelectBlock() {
   );
 
   return (
-    <S.regionSelectConatiner>
+    <S.regionSelectConatiner className="no-select">
       {regions.map(region => (
         <S.regionSelectItem
           className={selectedRegion === region.id && 'selected'}

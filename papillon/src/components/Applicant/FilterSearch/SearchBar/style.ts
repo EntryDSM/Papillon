@@ -82,7 +82,7 @@ export const CategoryDropdownOpened = styled.ul`
 `;
 
 export const SearchInputContainer = styled.div`
-  width: 75%;
+  width: 70%;
   height: 35px;
   box-sizing: border-box;
   border: solid ${darkBorderColor} 1px;
