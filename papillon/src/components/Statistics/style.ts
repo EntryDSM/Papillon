@@ -9,29 +9,35 @@ import {
 export const mainContainer = styled.div<{ isAll?: boolean }>`
   width: 70%;
   ${({ isAll }) => isAll && 'height: 100vh'};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: white;
 
-  > p {
+  p {
     font-size: 20px;
     color: ${darkPrimaryColor};
-    margin-top: 10%;
+    margin-top: 8%;
     letter-spacing: 0.72px;
   }
 
-  > h1 {
-    font-size: 58px;
+  h1 {
+    font-size: 52px;
     color: ${primaryTextColor};
-    margin-top: 2%;
+    margin-top: 1%;
     letter-spacing: 2.56px;
+  }
+
+  > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
 export const regionSelectConatiner = styled.ul`
   display: flex;
-  margin-top: 4%;
+  margin-top: 2%;
 `;
 
 export const regionSelectItem = styled.li`
@@ -58,10 +64,9 @@ export const regionSelectItem = styled.li`
 `;
 
 export const competitionTableWrapper = styled.div`
-  width: 475px;
-  height: 460px;
+  width: 40%;
   background-color: #ffffff;
-  margin-top: 4%;
+  margin-top: 2%;
 
   > table {
     width: 100%;

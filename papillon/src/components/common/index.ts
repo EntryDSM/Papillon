@@ -33,7 +33,7 @@ export const Button = styled.button`
     width: 110px;
     height: 36px;
     border-radius: 6px;
-    margin-top: 20px;
+    margin-top: 2%;
   }
 `;
 

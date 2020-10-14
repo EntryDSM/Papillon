@@ -31,5 +31,4 @@ export const AdmissionTicketSample = styled.img`
   width: 632px;
   height: 414px;
   margin-top: 4%;
-  margin-bottom: 4%;
 `;
