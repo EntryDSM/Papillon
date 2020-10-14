@@ -11,7 +11,11 @@ interface Props {
 }
 
 function ApplicantStatus({ applicantStatus, email }: Props) {
-  const { updateApplicantStatus, updateApplicantList } = useApplicant();
+  const {
+    applicantStore: { updateApplicantStatusStatus },
+    updateApplicantStatus,
+    updateApplicantList,
+  } = useApplicant();
 
   const handleClickCheckbox = React.useCallback(
     (status: string) => {
@@ -25,6 +29,7 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
           email,
           is_final_submit: false,
         });
+
         updateApplicantList({
           email,
           is_paid,
@@ -41,6 +46,7 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
           email,
           is_paid: !is_paid,
         });
+
         updateApplicantList({
           email,
           is_paid: !is_paid,
