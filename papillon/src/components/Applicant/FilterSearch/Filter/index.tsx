@@ -33,6 +33,8 @@ function Filter() {
     ) {
       newFilter['is_nationwide'] = true;
       newFilter['is_daejeon'] = null;
+    } else if (value === 'is_paid' || value === 'is_arrived') {
+      newFilter[value] = filters[value] === false ? null : false;
     } else {
       newFilter[value] = !filters[value] || null;
     }
@@ -40,14 +42,28 @@ function Filter() {
     setFilter(newFilter);
   };
 
+  const checkIsChecked = React.useCallback(
+    (value: string) => {
+      if (
+        (value === 'is_paid' || value === 'is_arrived') &&
+        filters[value] === false
+      ) {
+        return true;
+      } else {
+        return filters[value];
+      }
+    },
+    [filters],
+  );
+
   return (
     <S.FilterWrapper>
-      {checkLists.map((item) => (
+      {checkLists.map(item => (
         <S.FilterItemContainer
           key={item.value}
           onClick={() => handleChangeFilter(item.value)}
         >
-          <Checkbox isChecked={filters[item.value]} />
+          <Checkbox isChecked={checkIsChecked(item.value)} />
           <p>{item.content}</p>
         </S.FilterItemContainer>
       ))}
