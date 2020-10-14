@@ -8,7 +8,7 @@ import {
 
 export const SearchBarWrapper = styled.div`
   width: 88%;
-  top: 25%;
+  top: 18%;
   display: flex;
   justify-content: space-between;
   position: absolute;
