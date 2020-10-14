@@ -12,11 +12,13 @@ function Admission() {
   return (
     <AdmissionPageContainer>
       <ContentContainer>
-        <p>Entry DSM 2021 Admin page</p>
-        <h1>수험표 출력</h1>
-        <p>아래의 이미지와 같은 양식으로 지원자들의 수험표를 출력합니다</p>
-        <AdmissionTicketSample src={ex_examination_slip} />
-        <DownloadBtn />
+        <div>
+          <p>Entry DSM 2021 Admin page</p>
+          <h1>수험표 출력</h1>
+          <p>아래의 이미지와 같은 양식으로 지원자들의 수험표를 출력합니다</p>
+          <AdmissionTicketSample src={ex_examination_slip} />
+          <DownloadBtn />
+        </div>
       </ContentContainer>
     </AdmissionPageContainer>
   );

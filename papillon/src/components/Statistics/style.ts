@@ -89,7 +89,7 @@ export const competitionTableWrapper = styled.div`
   > tr,
   td {
     border: 1px solid ${primaryTextColor};
-    height: 24px;
+    height: 22px;
   }
 `;
 
