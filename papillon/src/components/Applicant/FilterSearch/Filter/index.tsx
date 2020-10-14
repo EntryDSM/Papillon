@@ -13,8 +13,8 @@ function Filter() {
   const checkLists = [
     { content: '대전', value: 'is_daejeon' },
     { content: '전국', value: 'is_nationwide' },
-    { content: '원서 미도착', value: 'not_arrived' },
-    { content: '미납자', value: 'not_paid' },
+    { content: '원서 미도착', value: 'is_arrived' },
+    { content: '미납자', value: 'is_paid' },
     { content: '일반 전형', value: 'is_common' },
     { content: '마이스터 전형', value: 'is_meister' },
     { content: '사회통합 전형', value: 'is_social' },
