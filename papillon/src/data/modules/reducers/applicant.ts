@@ -17,7 +17,7 @@ import { API_STATUS } from 'api/index';
 export interface InitialState {
   getApplicantsListStatus: 0 | 200 | 401 | 403;
   getApplicantInfoStatus: 0 | 200 | 401 | 403 | 423;
-  updateApplicantStatusStatus: 0 | 203 | 400 | 401 | 403;
+  updateApplicantStatusStatus: 0 | 204 | 400 | 401 | 403;
   filters: GetApplicantsListPayload;
   applicantsList: GetApplicantsListResponse;
   currnetApplicantInfo: GetApplicantInfoResponse;
@@ -80,12 +80,12 @@ const applicantReducer = (
         payload: action.payload,
         dataKeyName: 'currnetApplicantInfo',
       });
-    case UPDATE_APPLICANT_STATUS_ASYNC:
+    case UPDATE_APPLICANT_STATUS_ASYNC:{
       return returnApiResponseData<InitialState>({
         state,
-        statusName: API_STATUS.updateApplicantStatus,
+        statusName: API_STATUS.updateApplicantStatusStatus,
         payload: action.payload,
-      });
+      });}
     case UPDATE_APPLICANT_LIST:
       const newApplicantsList = { ...state.applicantsList };
       const newCurrnetApplicantInfo = { ...state.currnetApplicantInfo };

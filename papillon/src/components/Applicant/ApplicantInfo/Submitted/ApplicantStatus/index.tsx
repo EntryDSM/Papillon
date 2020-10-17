@@ -4,6 +4,7 @@ import * as S from './style';
 import { Checkbox, Button } from '../../../../common';
 import { ApplicantStatus } from 'api/apiTypes';
 import { useApplicant } from 'hooks/index';
+import checkApiStatus from 'api/checkApiStatus';
 
 interface Props {
   applicantStatus: ApplicantStatus;
@@ -15,11 +16,30 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
     applicantStore: { updateApplicantStatusStatus },
     updateApplicantStatus,
     updateApplicantList,
+    getApplicantInfo
   } = useApplicant();
+
+  const [changedStatus, setChangedStatus] = React.useState<ApplicantStatus>(null);
+
+  React.useEffect(() => {
+    if(checkApiStatus(updateApplicantStatusStatus)._204){
+      updateApplicantList({
+        email,
+        ...changedStatus
+      });
+
+      if(!changedStatus.is_final_submit) {
+        getApplicantInfo({email});
+      }
+
+    } else if(checkApiStatus(updateApplicantStatusStatus)._400) {
+      window.alert('지원자 정보 수정 권한이 없습니다.')
+    } 
+  }, [updateApplicantStatusStatus, changedStatus])
 
   const handleClickCheckbox = React.useCallback(
     (status: string) => {
-      const { is_paid, is_arrived, is_final_submit } = applicantStatus;
+      const { is_paid, is_arrived } = applicantStatus;
 
       if (
         status === 'is_final_submit' &&
@@ -27,13 +47,6 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
       ) {
         updateApplicantStatus({
           email,
-          is_final_submit: false,
-        });
-
-        updateApplicantList({
-          email,
-          is_paid,
-          is_arrived,
           is_final_submit: false,
         });
       }
@@ -46,13 +59,6 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
           email,
           is_paid: !is_paid,
         });
-
-        updateApplicantList({
-          email,
-          is_paid: !is_paid,
-          is_arrived,
-          is_final_submit,
-        });
       }
 
       if (
@@ -63,13 +69,13 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
           email,
           is_arrived: !is_arrived,
         });
-        updateApplicantList({
-          email,
-          is_paid,
-          is_arrived: !is_arrived,
-          is_final_submit,
-        });
       }
+
+      setChangedStatus({
+        ...applicantStatus,
+        [status]: !applicantStatus[status]
+      });
+      
     },
     [applicantStatus],
   );
