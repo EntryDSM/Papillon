@@ -10,7 +10,7 @@ export enum API_STATUS {
   getStatisticsStatus = 'getStatisticsStatus',
   getApplicantsListStatus = 'getApplicantsListStatus',
   getApplicantInfoStatus = 'getApplicantInfoStatus',
-  updateApplicantStatus = 'updateApplicantStatus',
+  updateApplicantStatusStatus = 'updateApplicantStatusStatus',
 }
 
 const instance = (api: 'main' | 'excel') =>

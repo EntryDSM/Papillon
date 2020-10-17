@@ -21,7 +21,7 @@ export const returnApiResponseData = <I>(props: {
   };
   dataKeyName?: string;
 }): I => {
-  if (props.payload.data === null) {
+  if (!props.payload.data || props.payload.data === ' ') {
     return {
       ...props.state,
       [props.statusName]: props.payload.status,
