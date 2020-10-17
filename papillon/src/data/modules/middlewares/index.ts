@@ -5,7 +5,6 @@ import authSaga from './auth';
 import applicantSaga from './applicant';
 import statisticsSaga from './statistics';
 import { refreshTokenApi } from 'api/index';
-import { LOGIN } from '../actions/auth';
 import { REFRESH_TOKEN_ASYNC } from '../actions/auth';
 import { clearStorage, getRefreshToken } from 'utils/token';
 
