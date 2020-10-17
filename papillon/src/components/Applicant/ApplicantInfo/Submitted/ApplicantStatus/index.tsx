@@ -82,13 +82,13 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
 
   return (
     <S.Wrapper>
-      <S.CheckboxContainer onClick={() => handleClickCheckbox('is_paid')}>
-        <Checkbox isChecked={applicantStatus.is_paid} />
-        <p>납부 여부</p>
-      </S.CheckboxContainer>
       <S.CheckboxContainer onClick={() => handleClickCheckbox('is_arrived')}>
         <Checkbox isChecked={applicantStatus.is_arrived} />
         <p>원서 도착 여부</p>
+      </S.CheckboxContainer>
+      <S.CheckboxContainer onClick={() => handleClickCheckbox('is_paid')}>
+        <Checkbox isChecked={applicantStatus.is_paid} />
+        <p>납부 여부</p>
       </S.CheckboxContainer>
       <Button
         className="applicant-info__cancel-btn"
