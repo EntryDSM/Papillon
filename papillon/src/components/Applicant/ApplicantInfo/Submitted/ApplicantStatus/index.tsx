@@ -17,85 +17,53 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
     updateApplicantStatus,
     updateApplicantList,
     getApplicantInfo,
+    resetUpdateStatus,
   } = useApplicant();
 
-  const [changedStatus, setChangedStatus] = React.useState<ApplicantStatus>({
-    is_arrived: false,
-    is_final_submit: false,
-    is_paid: false,
-  });
+  const [changedStatus, setChangedStatus] = React.useState<string>('');
 
   React.useEffect(() => {
-    if(checkApiStatus(updateApplicantStatusStatus)._204){
+    if (checkApiStatus(updateApplicantStatusStatus)._204) {
       updateApplicantList({
         email,
-        ...changedStatus
-      });
-
-      if(!changedStatus.is_final_submit) {
-        getApplicantInfo({email});
-      }
-
-    } else if(checkApiStatus(updateApplicantStatusStatus)._400) {
-      window.alert('지원자 정보 수정 권한이 없습니다.')
-    } 
-  }, [updateApplicantStatusStatus, changedStatus])
-
-  const handleClickCheckbox = React.useCallback(
-    (status: string) => {
-      const { is_paid, is_arrived } = applicantStatus;
-
-      if (
-        status === 'is_final_submit' &&
-        window.confirm('지원자의 최종제출을 취소하시겠습니까?')
-      ) {
-        updateApplicantStatus({
-          email,
-          is_final_submit: false,
-        });
-      }
-
-      if (
-        status === 'is_paid' &&
-        window.confirm('납부여부를 수정하시겠습니까?')
-      ) {
-        updateApplicantStatus({
-          email,
-          is_paid: !is_paid,
-        });
-      }
-
-      if (
-        status === 'is_arrived' &&
-        window.confirm('도착여부를 수정하시겠습니까?')
-      ) {
-        updateApplicantStatus({
-          email,
-          is_arrived: !is_arrived,
-        });
-      }
-
-      setChangedStatus({
         ...applicantStatus,
-        [status]: !applicantStatus[status],
+        [changedStatus]: !applicantStatus[changedStatus],
       });
-    },
-    [applicantStatus],
-  );
+
+      if (changedStatus === 'is_final_submit') {
+        getApplicantInfo({ email });
+      }
+    } else if (checkApiStatus(updateApplicantStatusStatus)._400) {
+      window.alert('지원자 정보 수정 권한이 없습니다.');
+    }
+
+    resetUpdateStatus();
+  }, [updateApplicantStatusStatus]);
+
+  const handleClickCheckbox = async (email: string, status: string) => {
+    if (window.confirm('지원자의 상태를 수정하시겠습니까?')) {
+      setChangedStatus(status);
+      updateApplicantStatus({ email, [status]: !applicantStatus[status] });
+    }
+  };
 
   return (
     <S.Wrapper>
-      <S.CheckboxContainer onClick={() => handleClickCheckbox('is_arrived')}>
+      <S.CheckboxContainer
+        onClick={() => handleClickCheckbox(email, 'is_arrived')}
+      >
         <Checkbox isChecked={applicantStatus.is_arrived} />
         <p>원서 도착 여부</p>
       </S.CheckboxContainer>
-      <S.CheckboxContainer onClick={() => handleClickCheckbox('is_paid')}>
+      <S.CheckboxContainer
+        onClick={() => handleClickCheckbox(email, 'is_paid')}
+      >
         <Checkbox isChecked={applicantStatus.is_paid} />
         <p>납부 여부</p>
       </S.CheckboxContainer>
       <Button
         className="applicant-info__cancel-btn"
-        onClick={() => handleClickCheckbox('is_final_submit')}
+        onClick={() => handleClickCheckbox(email, 'is_final_submit')}
       >
         최종제출 취소
       </Button>
