@@ -16,10 +16,14 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
     applicantStore: { updateApplicantStatusStatus },
     updateApplicantStatus,
     updateApplicantList,
-    getApplicantInfo
+    getApplicantInfo,
   } = useApplicant();
 
-  const [changedStatus, setChangedStatus] = React.useState<ApplicantStatus>(null);
+  const [changedStatus, setChangedStatus] = React.useState<ApplicantStatus>({
+    is_arrived: false,
+    is_final_submit: false,
+    is_paid: false,
+  });
 
   React.useEffect(() => {
     if(checkApiStatus(updateApplicantStatusStatus)._204){
@@ -73,9 +77,8 @@ function ApplicantStatus({ applicantStatus, email }: Props) {
 
       setChangedStatus({
         ...applicantStatus,
-        [status]: !applicantStatus[status]
+        [status]: !applicantStatus[status],
       });
-      
     },
     [applicantStatus],
   );
