@@ -8,7 +8,7 @@ import {
 
 export const mainContainer = styled.div<{ isAll?: boolean }>`
   width: 70%;
-  ${({ isAll }) => isAll && 'height: 100vh'};
+  height: 100vh;
   background: white;
 
   p {
