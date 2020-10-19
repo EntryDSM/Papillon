@@ -12,6 +12,7 @@ import {
   updateApplicantStatusPayload,
   updateApplicantListAction,
   UpdateApplicantListPayload,
+  resetUpdateStatusAction,
 } from '../data/modules/actions/applicant';
 import { AppState } from '../data/modules/store';
 import { InitialState } from '../data/modules/reducers/applicant';
@@ -57,6 +58,11 @@ export const useApplicant = () => {
     [dispatch],
   );
 
+  const resetUpdateStatus = useCallback(
+    () => dispatch(resetUpdateStatusAction()),
+    [dispatch],
+  );
+
   return {
     applicantStore,
     setFilter,
@@ -64,6 +70,7 @@ export const useApplicant = () => {
     getApplicantInfo,
     updateApplicantStatus,
     updateApplicantList,
+    resetUpdateStatus,
   };
 };
 

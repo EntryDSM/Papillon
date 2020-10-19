@@ -15,6 +15,7 @@ export const GET_APPLICANTS_LIST_ASYNC = 'GET_APPLICANTS_LIST_ASYNC';
 export const UPDATE_APPLICANT_STATUS = 'UPDATE_APPLICANT_STATUS';
 export const UPDATE_APPLICANT_STATUS_ASYNC = 'UPDATE_APPLICANT_STATUS_ASYNC';
 export const UPDATE_APPLICANT_LIST = 'UPDATE_APPLICANT_LIST';
+export const RESET_UPDATE_STATUS = 'RESET_UPDATE_STATUS';
 
 export type setFilterType = typeof SET_FILTER;
 export type setFilterPayload = GetApplicantsListPayload;
@@ -92,9 +93,19 @@ export const updateApplicantListAction = (
   payload,
 });
 
+interface ResetUpdateStatus {
+  type: typeof RESET_UPDATE_STATUS;
+  payload: null;
+}
+export const resetUpdateStatusAction = (): ResetUpdateStatus => ({
+  type: RESET_UPDATE_STATUS,
+  payload: null,
+});
+
 export type ApplicantActions =
   | SetFilter
   | GetApplicantInfo
   | GetApplicantsList
   | UpdateApplicantStatus
-  | UpdateApplicantList;
+  | UpdateApplicantList
+  | ResetUpdateStatus;

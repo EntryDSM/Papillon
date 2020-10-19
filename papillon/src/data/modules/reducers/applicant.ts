@@ -5,6 +5,7 @@ import {
   GET_APPLICANT_INFO_ASYNC,
   UPDATE_APPLICANT_STATUS_ASYNC,
   UPDATE_APPLICANT_LIST,
+  RESET_UPDATE_STATUS,
 } from '../actions/applicant';
 import {
   GetApplicantsListResponse,
@@ -80,12 +81,13 @@ const applicantReducer = (
         payload: action.payload,
         dataKeyName: 'currnetApplicantInfo',
       });
-    case UPDATE_APPLICANT_STATUS_ASYNC:{
+    case UPDATE_APPLICANT_STATUS_ASYNC: {
       return returnApiResponseData<InitialState>({
         state,
         statusName: API_STATUS.updateApplicantStatusStatus,
         payload: action.payload,
-      });}
+      });
+    }
     case UPDATE_APPLICANT_LIST:
       const newApplicantsList = { ...state.applicantsList };
       const newCurrnetApplicantInfo = { ...state.currnetApplicantInfo };
@@ -105,6 +107,11 @@ const applicantReducer = (
         ...state,
         applicantsList: newApplicantsList,
         currnetApplicantInfo: newCurrnetApplicantInfo,
+      };
+    case RESET_UPDATE_STATUS:
+      return {
+        ...state,
+        updateApplicantStatusStatus: 0,
       };
     default:
       return state;
