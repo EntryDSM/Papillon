@@ -25,7 +25,9 @@ function Content() {
         refresh_token: tokens.refresh_token,
       });
       push('/');
-    } else if (checkApiStatus(loginStatus)._403) {
+    } else if (checkApiStatus(loginStatus)._400) {
+      setIsFailed(true);
+    } else if (checkApiStatus(loginStatus)._401) {
       setIsFailed(true);
     }
   }, [loginStatus]);

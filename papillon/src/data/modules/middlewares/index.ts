@@ -32,7 +32,7 @@ export function* sagaEntity<ActionT, PayloadT = object>({
   } catch (_err) {
     const error: AxiosError = _err;
 
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && String(action.type) !== 'LOGIN') {
       try {
         const refresh_token: string = getRefreshToken();
         const tokenResponse = yield call(refreshTokenApi, {
