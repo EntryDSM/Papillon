@@ -18,6 +18,7 @@ const instance = (api: 'main' | 'excel') =>
     baseURL: `${BaseURL[api]}/v5/admin`,
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
     },
   });
 
