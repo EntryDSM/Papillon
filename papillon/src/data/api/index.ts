@@ -18,12 +18,12 @@ const instance = (api: 'main' | 'excel') =>
     baseURL: `${BaseURL[api]}/v5/admin`,
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache',
     },
   });
 
 const authorization = (token: string) => ({
   Authorization: `Bearer ${token}`,
+  'Cache-Control': 'no-cache',
 });
 
 export const loginApi = async (payload: T.LoginPayload) => {
